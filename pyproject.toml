@@ -1,3 +1,10 @@
+[project]
+name = "txtdb"
+description = "Local db that uses json files. We wanted to make a local db for small projects that was fast"
+dynamic = ["version"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool]
