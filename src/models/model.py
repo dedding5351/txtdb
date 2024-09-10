@@ -51,22 +51,3 @@ class Model(metaclass=ModelMeta):
             if field not in self.EXCLUDED_TO_DICT_FIELDS:
                 result[field] = getattr(self, field, None)
         return result
-
-    
-
-
-class TestModel(Model):
-    field_1 = "A"
-
-test_model = TestModel(id="Unique")
-letters = "abcdefghijklmnopqrstuvwxyz"
-
-model_list = [TestModel(id=letter) for letter in letters] * 100000
-
-import time
-start_time = time.time()
-
-for idx, model in enumerate(model_list):
-    model.save()
-
-print("--- %s seconds ---" % (time.time() - start_time))
